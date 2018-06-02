@@ -8,9 +8,9 @@ dependencies:
 
 test:
   override:
-    - bin/lint
-    - mvn -o surefire:test
-    - mvn findbugs:check
+    #- bin/lint
+    #- mvn -o surefire:test
+    #- mvn findbugs:check
     - mvn cobertura:cobertura
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
