@@ -11,9 +11,11 @@ test:
     - bin/lint
     - mvn -o surefire:test
     - mvn findbugs:check
+    - mvn cobertura:cobertura
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/.*-reports/.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - bash <(curl -s https://codecov.io/bash)
 
 experimental:
   notify:
